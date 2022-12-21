@@ -1,0 +1,35 @@
+import { useState } from 'react'
+import PropTypes from 'prop-types';
+
+
+
+export const CounterApp = ({ value }) => {
+
+  const [ counter, setCounter ] = useState( value );
+  
+  const handleAdd = (event) => {
+    console.log(event);
+
+    // Suma 1 al valor por defecto del counter
+    setCounter( counter + 1 );
+
+    // Suma 1 al valor ACTUAL del counter
+    setCounter( (c) => c + 1 );
+  }
+  
+  return (
+    // Usar <> es lo mismo que usar Fragment sin tener que importarlo
+    <>
+      <h1> CounterApp </h1>
+      <h2> { counter } </h2>
+
+      <button onClick={ handleAdd }>
+        +1
+      </button>
+    </>
+  );
+}
+
+CounterApp.propTypes = {
+  value: PropTypes.number,
+}
