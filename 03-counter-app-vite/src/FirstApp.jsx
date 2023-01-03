@@ -16,13 +16,14 @@ const getResult = (a , b) => {
   return (a + b)
 };
 
-export const FirstApp = ({ title, subTitle }) => {
+export const FirstApp = ({ title, subTitle, name }) => {
 
   return (
     // Usar <> es lo mismo que usar Fragment sin tener que importarlo
     <>
       <h1> { title } </h1>
-      <h4> { subTitle + 1 } </h4>
+      <h4> { subTitle } </h4>
+      <h4> { name } </h4>
       {/* <p>Soy un { getResult(1,20) }</p> */}
     </>
   );
@@ -36,4 +37,5 @@ FirstApp.propTypes = {
 
 FirstApp.defaultProps = {
   title: 'Title por defecto',
+  name: 'Oscar establie'
 }
