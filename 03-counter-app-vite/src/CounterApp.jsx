@@ -7,15 +7,19 @@ export const CounterApp = ({ value }) => {
 
   const [ counter, setCounter ] = useState( value );
   
-  const handleAdd = (event) => {
-    console.log(event);
-
+  const handleAdd = () => {
+    // console.log(event);
+    
     // Suma 1 al valor por defecto del counter
-    setCounter( counter + 1 );
+    // setCounter( counter + 1 );
 
     // Suma 1 al valor ACTUAL del counter
-    setCounter( (c) => c + 1 );
+    setCounter( counter + 1 );
+    
   }
+
+  const handleSubstract = () => setCounter( counter - 1);
+  const handleReset = () => setCounter( value);
   
   return (
     // Usar <> es lo mismo que usar Fragment sin tener que importarlo
@@ -23,9 +27,10 @@ export const CounterApp = ({ value }) => {
       <h1> CounterApp </h1>
       <h2> { counter } </h2>
 
-      <button onClick={ handleAdd }>
-        +1
-      </button>
+      <button onClick={ handleAdd }> +1 </button>
+      <button onClick={ handleSubstract }> -1 </button>
+      <button onClick={ handleReset }> Reset </button>
+      
     </>
   );
 }
