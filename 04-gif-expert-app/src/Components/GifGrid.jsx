@@ -1,19 +1,23 @@
-import { useEffect, useState } from "react";
-import { getGifs } from "../helpers/getGifs";
+
+import { useFecthGifs } from "../hooks/useFecthGifs";
+import { GifItem } from "./GifItem";
 
 export const GifGrid = ({ category }) => {
 
-  const [images, setImages] = useState([]);
+  const { images, isLoading} = useFecthGifs( category );
 
-  const getImages = async() => {
-    const newImages = await getGifs( category );
-    setImages(newImages);
-  }
+  console.log(images, isLoading);
+  // const [images, setImages] = useState([]);
 
-  // useEffect es un efecto secundario cuando pasa algo, en este caso es un efecto secundario de cuando se crea o se destruye el componente al dejar el segundo parametro vacío
-  useEffect(() => {
-    getImages();
-  }, [])
+  // const getImages = async() => {
+  //   const newImages = await getGifs( category );
+  //   setImages(newImages);
+  // }
+
+  // // useEffect es un efecto secundario cuando pasa algo, en este caso es un efecto secundario de cuando se crea o se destruye el componente al dejar el segundo parametro vacío
+  // useEffect(() => {
+  //   getImages();
+  // }, [])
   
   
 
@@ -21,16 +25,21 @@ export const GifGrid = ({ category }) => {
     <>
     <div>
       <h3>{ category }</h3> 
-      <ol className="card-grid">
       {
-        images.map( ({url, id, title}) => (
-          <li key={id} className="card">
-            <img src={url}></img>
-            <p>{ title }</p>
-          </li>
+        isLoading && (<h2 >Cargando...</h2>)
+      }
+      
+
+      <div className="card-grid">
+      {
+        images.map( (image) => (
+          <GifItem key={image.id} 
+          // Asi se manda todo el objeto al padre
+          { ...image }
+          ></GifItem>
         ))
       }
-      </ol>
+      </div>
     </div>
       
     </>
