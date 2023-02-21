@@ -7,19 +7,6 @@ export const GifGrid = ({ category }) => {
   const { images, isLoading} = useFecthGifs( category );
 
   console.log(images, isLoading);
-  // const [images, setImages] = useState([]);
-
-  // const getImages = async() => {
-  //   const newImages = await getGifs( category );
-  //   setImages(newImages);
-  // }
-
-  // // useEffect es un efecto secundario cuando pasa algo, en este caso es un efecto secundario de cuando se crea o se destruye el componente al dejar el segundo parametro vacío
-  // useEffect(() => {
-  //   getImages();
-  // }, [])
-  
-  
 
   return (
     <>
