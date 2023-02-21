@@ -16,11 +16,17 @@ export const useCounter = ( initialValue = 10) => {
     setCounter( initialValue);
   }
 
+  const random = (min = 1, max = 100) => {
+    const random = Math.round(min + Math.random() * (max - min));
+    return setCounter( random );
+  }
+
 
   return {
     counter,
     increment,
     reset,
     decrement,
+    random,
   }
 }
