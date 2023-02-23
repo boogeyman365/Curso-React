@@ -23,8 +23,6 @@ export const useFetch = ( url ) => {
       isLoading: false,
       hasError: null,
     })
-
-    console.log('data: ', data);
   };
 
   const nextCharacter = () => {
