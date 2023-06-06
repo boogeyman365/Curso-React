@@ -1,5 +1,5 @@
 import { TurnedInNot } from "@mui/icons-material";
-import { Drawer, Box, Toolbar, Typography, Divider, List, ListItem, ListItemButton, ListItemIcon, Grid, ListItemText } from "@mui/material";
+import { Drawer, Box, Toolbar, Typography, Divider, List, ListItem, ListItemButton, ListItemIcon, Grid, ListItemText, Avatar } from "@mui/material";
 import { useSelector } from "react-redux";
 
 export const SideBar = ({ drawerWidth = 240 }) => {
@@ -20,7 +20,10 @@ export const SideBar = ({ drawerWidth = 240 }) => {
            }}>
 
             <Toolbar>
-              <img src={ photoURL } />
+              <Avatar 
+                alt={ displayName } 
+                src={ photoURL } 
+                sx={{ width: 25, height: 25, marginRight: 2 }} />
               <Typography variant="h6" noWrap component='div'>
                 { displayName }
               </Typography>
