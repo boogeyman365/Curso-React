@@ -12,7 +12,7 @@ export const JournalPage = () => {
   const { isSaving, active } = useSelector( state => state.journal);
   const onClickNewNote = () => {
     dispatch( startNewNote() );
-
+    
   }
 
 

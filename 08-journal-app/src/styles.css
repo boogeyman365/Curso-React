@@ -3,3 +3,7 @@
 .box-shadow {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
 }
+
+.active-note {
+  background-color: rgba(8, 116, 116, 0.603);
+}

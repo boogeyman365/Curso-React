@@ -1,5 +1,5 @@
 import { collection, doc, setDoc } from "firebase/firestore/lite";
-import { firebaseDB } from "../../firebase/config";
+import { FirebaseDB } from "../../firebase/config";
 import { addNewEmptyNote, savingNewNote, setActiveNote, setNotes } from "./journalSlice";
 import { loadNotes } from "../../helpers/loadNotes";
 
@@ -17,7 +17,7 @@ export const startNewNote = () => {
       date: new Date().getTime(),
     }
 
-    const newDoc = doc( collection( firebaseDB, `${ uid }/journal/notes` ) )
+    const newDoc = doc( collection( FirebaseDB, `${ uid }/journal/notes` ) )
     const setDocResp = await setDoc( newDoc, newNote );
 
     newNote.id = newDoc.id
